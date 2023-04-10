@@ -1,26 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PiramideScript : MonoBehaviour
 {
-    public GameObject cubePrefab;
+    public GameObject obstaclePrefab; // The prefab of the obstacle to be stacked
+    public int numRows = 3; // Number of rows in the pyramid
+    public int numObstaclesPerRow = 3; // Number of obstacles per row in the pyramid
+    public float obstacleSpacing = 1.0f; // Spacing between obstacles in a row
+    public float rowSpacing = 1.5f; // Spacing between rows of obstacles
 
-    public int baseSize = 5;
-    public int height = 5;
-
-    void Start() 
+    void Start()
     {
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < baseSize - y; x++) {
-                Vector3 position = new Vector3(x - ((baseSize - y) * 0.5f) + 0.5f, y, 10.0f);
-                GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
-                cube.transform.localScale = new Vector3(1f - (y * 0.1f), 1f, 1f - (y * 0.5f));
-                cube.transform.parent = transform;
+        GenerateObstaclePyramids();
+    }
+
+    void GenerateObstaclePyramids()
+    {
+        for (int row = 0; row < numRows; row++)
+        {
+            float rowOffset = row * rowSpacing;
+            int numObstaclesInRow = numObstaclesPerRow - row;
+
+            for (int i = 0; i < numObstaclesInRow; i++)
+            {
+                float xPos = i * obstacleSpacing - numObstaclesInRow * obstacleSpacing * 0.5f;
+                float zPos = rowOffset;
+
+                Instantiate(obstaclePrefab, new Vector3(xPos, 0.0f, zPos), Quaternion.identity, transform);
             }
         }
     }
-
-
-
 }

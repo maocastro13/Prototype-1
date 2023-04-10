@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 855511751}
   - component: {fileID: 855511753}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpawnerManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -409,9 +409,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c97f1183ddf353242a3eb58b59bba9bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubePrefab: {fileID: 2688048876753098522, guid: 2d24a16df6d52534bab08d0689e96a79, type: 3}
-  baseSize: 5
-  height: 5
+  prefabObstaculo: {fileID: 4164225272872943395, guid: 7f6783f6a09f8384d8ba97d5e0281c89, type: 3}
+  cantidadPilas: 2
+  tamanoPila: 1
+  espacioEntreObstaculos: 2
+  posicionInicial: {x: 0, y: 0, z: 12}
+  tiposObstaculo:
+  - {fileID: 4164225272872943395, guid: 7f6783f6a09f8384d8ba97d5e0281c89, type: 3}
 --- !u!4 &855511752
 Transform:
   m_ObjectHideFlags: 0
@@ -420,7 +424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855511750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: -1.0663304, z: 0.94}
+  m_LocalPosition: {x: 1.75, y: -1.0663304, z: 12.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -438,7 +442,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 14
@@ -588,6 +592,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vehicle
       objectReference: {fileID: 0}
+    - target: {fileID: 178130, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: m_TagString
+      value: Vehicle
+      objectReference: {fileID: 0}
     - target: {fileID: 436868, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -632,6 +640,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2359104, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313442307395238052, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313442307395238052, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
 --- !u!4 &1478304768 stripped
@@ -639,6 +659,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 436868, guid: 70bf34f6c25c948458f254e87188b00b, type: 3}
   m_PrefabInstance: {fileID: 1478304767}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1478304769
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 945969563}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 3.159401, y: 2.2641532, z: 5.3768578}
+  m_Center: {x: 0, y: 1.4147826, z: 0}
 --- !u!4 &2093379048 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7317731328111405690, guid: 5f0963a629b97442587b7f3ece766e42, type: 3}
